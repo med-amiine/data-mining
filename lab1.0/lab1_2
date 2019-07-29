@@ -1,0 +1,117 @@
+#exercice 1.1
+colors <-factor(c("red","blue","green","orange"))
+colors
+pattern <- list(sample(colors,500,replace=TRUE))
+pattern1 <- data.frame(pattern)
+pattern2 <- as.matrix(pattern1)
+colors1 <- list(colors)
+expand.grid(pattern,colors)
+expand.grid(pattern,colors1)
+
+#exercice 1.2
+data(cars)
+cars
+cars2 <- (cars)
+cars3 <- data.frame(cars)
+plot(x=cars$speed,y=cars$dist,
+     xlab="speed",
+     ylab="dist")
+
+#exercice 1.3
+age <-c(13, 15, 16, 16, 19, 20, 20, 21, 22, 22, 25, 25, 25,
+        25, 30, 33, 33, 35, 35, 35, 35, 36, 40, 45, 46, 52, 70)
+View(age)
+#median
+median(age)
+#mean
+mean(age)
+#mode of data
+table(age)
+max(table(age))
+which(table(age) == max(table(age))) 
+#???3
+min(age)
+max(age)
+#midrange 1
+(min(age)+max(age))/2
+#midrange 2
+range(age)
+mean(range(age))
+#quartiles
+quantile(age)
+#quartiles 1st and 3rd
+summary(age)
+boxplot(age)
+
+#exercice 1.4
+age <-c(23, 23, 27, 27, 39, 41, 47, 49, 50, 52, 54, 54, 56, 57, 58, 58, 60, 61)
+fat <-c(9.5, 26.5, 7.8, 17.8, 31.4, 25.9, 27.4, 27.2, 31.2, 34.6, 42.5, 28.8, 33.4, 30.2, 34.1, 32.9, 41.2, 35.7)
+hospital <- data.frame(age,fat)
+View(hospital)
+mean(hospital$age)
+mean(hospital$fat)
+
+median(hospital$age)
+median(hospital$fat)
+#???standard deviation of age and %fat.
+sd(hospital$age)
+sd(hospital$fat)
+#boxplot
+boxplot(hospital)
+#scatterplots
+scatterplot3d::scatterplot3d(hospital)
+plot(age, fat, main="hospital", 
+    xlab="age ", ylab="fat ",pch=19)
+
+cor(age, fat)          # apply the cor function 
+#The correlation coefficient of eruption duration and waiting time is 0.8176188 Since it is rather close to 1, we can conclude that the variables are positively linearly related.
+
+#exercice 1.5
+  # outlier values for age
+outlier_values <- boxplot.stats(hospital$age)$out 
+boxplot(hospital$age, main="hospital age", boxwex=0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+
+OutVals = boxplot(hospital$age)$out
+which(x %in% OutVals)
+
+# outlier values for speed & dist
+OutVals = boxplot(cars$speed)$out
+which(x %in% OutVals)
+
+OutVals = boxplot(cars$dist)$out
+which(x %in% OutVals)
+
+OutVals = boxplot(iris$Sepal.Length)$out
+which(x %in% OutVals)
+
+OutVals = boxplot(iris$Sepal.Width)$out
+which(x %in% OutVals)
+
+
+#exercice 1.6
+#???
+olyampic.data<- olyampic.data[-5]
+olyampic <- olyampic.data
+olyampic
+
+#exercice 1.9
+install.packages("factorextra")
+
+
+#exercice 4.1 (clustering data from iris)
+#¶scaled data is mor convinient change from 0 to 200 to -50 to 70
+
+iris
+set.seed(120)
+iris.scaled<-scale(iris)
+
+cluster<-kmeans(iris.scaled,5,nstart=20)
+View(cluster)
+
+library(factoextra)
+library(ggplot2)
+
+fviz_cluster(cluster,data=iris.scaled,
+             type.frame = "norm")
+

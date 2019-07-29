@@ -1,0 +1,29 @@
+
+library(cluster)
+cos1 <- c(1,2,3,4)
+cos2 <- c(5,6,7,8)
+
+mojedane <- data.frame(cos1,cos2)
+mojedane
+mojedane2 <- daisy(mojedane)
+mojedane2
+mojedane3 <- dist(mojedane)
+mojedane3
+plot(mojedane)
+plot(mojedane2)
+dendrogram <- hclust(mojedane2)
+plot(dendrogram)
+clusterCut <- cutree(dendrogram,3)
+
+mojedane <- data.frame(cos1,cos2)
+cl <- kmeans (mojedane,3,nstart = 20)
+pam(mojedane,3)
+dct<-cluster::daisy(mojedane)
+slt<-cluster::silhouette(cl$cluster,dct)
+
+
+library(scatterplot3d)
+scatterplot3d(iris,pch = 16 
+               ,angle =55,box=TRUE)
+
+colors<-c("#99999")
