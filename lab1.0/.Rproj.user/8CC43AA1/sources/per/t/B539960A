@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564387821776.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3700647905",
+    "id" : "B539960A",
+    "lastKnownWriteTime" : 1564387831,
+    "last_content_update" : 1564387831771,
+    "path" : "~/R_projects/lab2.0/dm_lab2.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "23,7",
+        "scrollLine" : "8"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
